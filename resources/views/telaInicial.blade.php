@@ -39,21 +39,60 @@
     <h1>Ultimos Eventos Criados:</h1>
 </div>
 
-<div class="container-fluid "> 
-    <div class="card" style="width: 18rem;">     
-        <div class="card-body">
-            <h5 class="card-title">Nome do Evento</h5>
-            <p class="card-text">Resumo do Evento:</p>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Categoria:</li>
-            <li class="list-group-item">Cliente:</li>
-            <li class="list-group-item">Atendido por:</li>
-        </ul>
-        <div class="card-body">
-            <a href="#" class="card-link">Vizualizar</a>
-         </div>
-    </div>
-</div>
-</div>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Placa</th>
+        <th scope="col">Renavam</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Ano</th>
+        <th scope="col">Propietario</th>
+        <th scope="col">Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td style="width:120px"> 
+            <button class="btn btn-success ml-1" href="#"><ion-icon name="create-outline"></ion-icon></button>
+            <button class="btn btn-danger ml-1" href="#"><ion-icon name="trash-outline"></ion-icon></button>
+        </td>
+      </tr>
+      <tr>
+       
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td style="width:120px"> 
+            <button class="btn btn-success ml-1" href="#"><ion-icon name="create-outline"></ion-icon></button>
+            <button class="btn btn-danger ml-1" href="#"><ion-icon name="trash-outline"></ion-icon></button>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry the Bird</td>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>Thornton</td>
+        <td style="width:120px"> 
+            <button class="btn btn-success ml-1" href="#"><ion-icon name="create-outline"></ion-icon></button>
+            <button class="btn btn-danger ml-1" href="#"><ion-icon name="trash-outline"></ion-icon></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 @endsection
