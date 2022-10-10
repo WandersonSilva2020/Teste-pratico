@@ -30,9 +30,13 @@ class EventController extends Controller
     }
     public function meusEventos(){
             $userId = auth()->user()->id;
-
+            
             $eventUser = DB::select('select * from events where user_id = ?', [$userId]);
 
             return view('event.MeusEventos',['eventUser'=> $eventUser]);
+    }
+
+    public function edit(){
+        return view('Event.edit');
     }
 }

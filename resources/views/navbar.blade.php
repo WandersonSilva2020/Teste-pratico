@@ -15,7 +15,7 @@
                 Administração
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Editar Eventos</a>
+                <a class="dropdown-item" href="/administracao/edit/">Editar Eventos</a>
               </div>
             </li>
           </ul>
