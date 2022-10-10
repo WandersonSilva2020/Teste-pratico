@@ -20,10 +20,14 @@ class EventController extends Controller
         $events -> modelo = $request -> modelo;
         $events -> marca = $request -> marca;
         $events -> ano = $request -> ano;
-        $events -> propietario = $request -> propietario;      
+        $events -> propietario = $request -> propietario; 
+        $events -> user_id  = auth()->user()->id;    
         $events->save();
-        $codigoDeResultado = '1';
         return redirect('/home')-> with('success',' O evento foi criado com sucesso!');
 
+    }
+    public function meusEventos(){
+
+            return view('event.MeusEventos');
     }
 }

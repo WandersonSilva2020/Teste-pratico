@@ -35,5 +35,7 @@ Route::group(['prefix'=>'admin', 'as'=>'admin.'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
 });
 /*------- Tela de Novo Evento -------*/
-Route::get('/create','EventController@create')->middleware('auth');
-Route::post('/create', [EventController::class, 'store']);
+Route::get('/create', [EventController::class, 'create'])->middleware('auth');
+Route::post('/create', [EventController::class, 'store'])->middleware('auth');
+/*----- Meus Eventos -----*/
+Route::get('/meusEventos', [EventController::class, 'meusEventos'])->middleware('auth');
