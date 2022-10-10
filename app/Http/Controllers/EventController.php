@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Event;
+use App\User;
+use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
 {
@@ -27,7 +29,10 @@ class EventController extends Controller
 
     }
     public function meusEventos(){
+            $userId = auth()->user()->id;
 
-            return view('event.MeusEventos');
+            $eventUser = DB::select('select * from events where user_id = ?', [$userId]);
+
+            return view('event.MeusEventos',['eventUser'=> $eventUser]);
     }
 }
