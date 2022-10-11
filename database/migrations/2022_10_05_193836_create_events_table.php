@@ -22,6 +22,7 @@ class CreateEventsTable extends Migration
             $table->text('propietario');
             $table->increments('id');
             $table->timestamps();
+            $table->text('autor');
         });
     }
 

@@ -67,10 +67,10 @@
             </div>
         </nav>
         
-             <div class="container-fluid">
-                @include('flash-message')
-            </div>
             
+           <div class="container-fluid">
+                @include('flash-message')
+            </div>  
         <main class="py-4">
            
             @yield('content')

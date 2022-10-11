@@ -24,6 +24,7 @@ class EventController extends Controller
         $events -> ano = $request -> ano;
         $events -> propietario = $request -> propietario; 
         $events -> user_id  = auth()->user()->id;    
+        $events -> autor = auth()->user()->name;
         $events->save();
         return redirect('/home')-> with('success',' O evento foi criado com sucesso!');
 
@@ -37,6 +38,8 @@ class EventController extends Controller
     }
 
     public function edit(){
-        return view('Event.edit');
+        $event = Event::all();
+        $userName = auth()->user()->name;
+        return view('Event.edit',['event'=> $event,'userName'=>$userName]);
     }
 }

@@ -40,4 +40,4 @@ Route::post('/create', [EventController::class, 'store'])->middleware('auth');
 /*----- Meus Eventos -----*/
 Route::get('/meusEventos', [EventController::class, 'meusEventos'])->middleware('auth');
 /*----- Administração: Editar Evento -------- */
-Route::get('/administracao/editar/',[EventController::class, 'edit'])->middleware('permissao');
+Route::get('/administracao/edit/',[EventController::class, 'edit'])->middleware('adminCheck');
