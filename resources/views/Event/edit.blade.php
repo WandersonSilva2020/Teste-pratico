@@ -11,9 +11,8 @@
 @include ('navbar')
 <div class="container-fluid text-center m-2">
     <div class="container-fluid-col-md-6">
-
+        <h1>Area de Administração</h1>
     </div>
-<h1>Area de Administração</h1>
 </div>
 <div class="container-fluid">
     <table class="table table-bordered table-hover mr-2">
@@ -34,18 +33,24 @@
         <tbody>
             @foreach ($event as $events)
             <tr>
-            <td><b>{{$events->id}}<b></td>
-            <td>{{$events->placa}}</td>
-            <td>{{$events->renavam}}</td>
-            <td>{{$events->modelo}}</td>
-            <td>{{$events->marca}}</td>
-            <td>{{$events->ano}}</td>
-            <td>{{$events->autor}}</td>
-            <td>{{$events->propietario}}</td>
-            <td class="text-center">
-                <a class="btn btn-success" href="/event/edit/{{$events->id}}"><ion-icon name="create-outline"></ion-icon></a> 
-                <a class="btn btn-danger" href="/event/delete/{{$events->id}}"><ion-icon name="trash-outline"></ion-icon></a> 
-            </td>
+                <td><b>{{$events->id}}<b></td>
+                <td>{{$events->placa}}</td>
+                <td>{{$events->renavam}}</td>
+                <td>{{$events->modelo}}</td>
+                <td>{{$events->marca}}</td>
+                <td>{{$events->ano}}</td>
+                <td>{{$events->autor}}</td>
+                <td>{{$events->propietario}}</td>
+                <td>
+                     <div class="col-md-12">
+                        <form style="text-align: center; "  action="delete/{{$events->id}}" method="POST"> 
+                         <a class="btn btn-success " href="/{{$events->id}}"><ion-icon name="create-outline"></ion-icon></a> 
+                           @csrf
+                            @method('DELETE')
+                            <button  type="submit" class="btn btn-danger"><ion-icon name="trash-outline"></ion-icon></a>
+                        </form>
+                    </div>                
+                </td>
             </tr>
             @endforeach
         </tbody>

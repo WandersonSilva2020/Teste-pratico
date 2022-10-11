@@ -42,4 +42,9 @@ class EventController extends Controller
         $userName = auth()->user()->name;
         return view('Event.edit',['event'=> $event,'userName'=>$userName]);
     }
+
+    public function destroy($id){
+        Event::findOrFail($id)->delete(); 
+        return redirect('/administracao/edit/')->with('Delete','Evento excluido com sucesso !'); 
+    }
 }

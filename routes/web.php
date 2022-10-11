@@ -41,3 +41,5 @@ Route::post('/create', [EventController::class, 'store'])->middleware('auth');
 Route::get('/meusEventos', [EventController::class, 'meusEventos'])->middleware('auth');
 /*----- Administração: Editar Evento -------- */
 Route::get('/administracao/edit/',[EventController::class, 'edit'])->middleware('adminCheck');
+/*----- Administração: excluir evento ------------*/
+Route::delete('/administracao/delete/{id}',[EventController::class, 'destroy']);
