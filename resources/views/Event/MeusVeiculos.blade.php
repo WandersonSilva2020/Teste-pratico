@@ -5,7 +5,7 @@
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <div class="container-fluid">
-    <h1 class="text-center m-4" style="font-family: serif; Didot"><b>Meus Eventos</b></h1>
+    <h1 class="text-center m-4" style="font-family: serif; Didot"><b>Meus Veículos</b></h1>
 </div>
     <div class="container-fluid mr-4">
         <table class="table table-bordered table-hover">

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class EventController extends Controller
 {
     public function create(){
-        return view('Event.NovoEvento');
+        return view('Event.NovoVeiculo');
     }
 
     public function store(Request $request){
@@ -26,15 +26,15 @@ class EventController extends Controller
         $events -> user_id  = auth()->user()->id;    
         $events -> autor = auth()->user()->name;
         $events->save();
-        return redirect('/home')-> with('success',' O evento foi criado com sucesso!');
+        return redirect('/home')-> with('success',' O veículo foi registrado com sucesso!');
 
     }
-    public function meusEventos(){
+    public function meusVeiculos(){
             $userId = auth()->user()->id;
             
             $eventUser = DB::select('select * from events where user_id = ?', [$userId]);
 
-            return view('event.MeusEventos',['eventUser'=> $eventUser]);
+            return view('event.MeusVeiculos',['eventUser'=> $eventUser]);
     }
 
     public function edit(){
@@ -45,17 +45,17 @@ class EventController extends Controller
 
     public function destroy($id){
         Event::findOrFail($id)->delete(); 
-        return redirect('/administracao/edit/')->with('Delete','Evento excluido com sucesso !'); 
+        return redirect('/administracao/edit/')->with('Delete','Veículo excluido com sucesso !'); 
     }
 
     public function atualizar($id){
         /*--- Exibe a tela de atualizar evento ---*/
         $event = Event::FindOrFail($id);
-        return view('Event.AtualizarEventos',['event'=>$event]);
+        return view('Event.AtualizarVeiculo',['event'=>$event]);
     }
 
     public function update(Request $request){
         Event::findOrFail($request->id)->update($request->all());
-        return redirect('home')->with('update','Evento Atualizado com sucesso!');
+        return redirect('home')->with('update','Veículo Atualizado com sucesso!');
     }    
 }

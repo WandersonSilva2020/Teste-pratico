@@ -34,15 +34,15 @@ Route::group(['prefix'=>'admin', 'as'=>'admin.'], function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
 });
-/*------- Tela de Novo Evento -------*/
+/*------- Tela de Novo Veículo -------*/
 Route::get('/create', [EventController::class, 'create'])->middleware('auth');
 Route::post('/create', [EventController::class, 'store'])->middleware('auth');
-/*----- Meus Eventos -----*/
-Route::get('/meusEventos', [EventController::class, 'meusEventos'])->middleware('auth');
-/*----- Administração: Tela listar todos os Eventos -------- */
+/*----- Meus Veículos -----*/
+Route::get('/meusVeiculos', [EventController::class, 'meusVeiculos'])->middleware('auth');
+/*----- Administração: Tela listar todos os Veículos -------- */
 Route::get('/administracao/edit/',[EventController::class, 'edit'])->middleware('auth','adminCheck');
-/*----- Administração: excluir evento ------------*/
+/*----- Administração: excluir veículo ------------*/
 Route::delete('/administracao/delete/{id}',[EventController::class, 'destroy'])->middleware('auth','adminCheck');
-/*--------- Administração: atualizar evento -------------*/
+/*--------- Administração: atualizar veículo -------------*/
 Route::get('/administracao/atualizar/{id}',[EventController::class, 'atualizar'])->middleware('auth','adminCheck');
 Route::put('/update/{id}',[EventController::class, 'update'])->middleware('auth','adminCheck');

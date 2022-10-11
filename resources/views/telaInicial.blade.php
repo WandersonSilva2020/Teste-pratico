@@ -23,17 +23,17 @@
         <div class="col">
           <div class="d-grid gap-2 d-md-flex justify-content-start">
               <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                  <button type="button" class="btn btn-warning btn-lg m-2">Numero de eventos Criados: {{$numeroDeEventos}}</button>
+                  <button type="button" class="btn btn-warning btn-lg m-2">Numero de veículos Registrados: {{$numeroDeEventos}}</button>
               </div>
               <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                  <button type="button" class="btn btn-primary btn-lg m-2">Seus Eventos: {{$numeroMeusEventos}}</button>
+                  <button type="button" class="btn btn-primary btn-lg m-2">Seus Veículos registrados: {{$numeroMeusEventos}}</button>
               </div>
           </div>
       </div>
       <div class="col">
         <div class="d-grid gap-2 d-md-flex justify-content-end">
           <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-              <a class="btn btn-success btn-lg " href="/create"><ion-icon name="add-circle-outline"></ion-icon> Novo Evento</a></button>
+              <a class="btn btn-success btn-lg " href="/create"><ion-icon name="add-circle-outline"></ion-icon> Novo Registro de Veículo</a></button>
           </div>
         </div>
         </div>
@@ -42,7 +42,7 @@
   </div>
 
   <div class="container-fluid text-centralize">
-      <h1>Ultimos Eventos Criados:</h1>
+      <h1>Ultimos Veículos Adicionados:</h1>
   </div>
     
     <table class="table table-bordered table-hover">
