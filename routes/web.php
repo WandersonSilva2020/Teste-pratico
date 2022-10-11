@@ -39,7 +39,10 @@ Route::get('/create', [EventController::class, 'create'])->middleware('auth');
 Route::post('/create', [EventController::class, 'store'])->middleware('auth');
 /*----- Meus Eventos -----*/
 Route::get('/meusEventos', [EventController::class, 'meusEventos'])->middleware('auth');
-/*----- Administração: Editar Evento -------- */
-Route::get('/administracao/edit/',[EventController::class, 'edit'])->middleware('adminCheck');
+/*----- Administração: Tela listar todos os Eventos -------- */
+Route::get('/administracao/edit/',[EventController::class, 'edit'])->middleware('auth','adminCheck');
 /*----- Administração: excluir evento ------------*/
-Route::delete('/administracao/delete/{id}',[EventController::class, 'destroy']);
+Route::delete('/administracao/delete/{id}',[EventController::class, 'destroy'])->middleware('auth','adminCheck');
+/*--------- Administração: atualizar evento -------------*/
+Route::get('/administracao/atualizar/{id}',[EventController::class, 'atualizar'])->middleware('auth','adminCheck');
+Route::put('/update/{id}',[EventController::class, 'update'])->middleware('auth','adminCheck');

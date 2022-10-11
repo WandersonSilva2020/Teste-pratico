@@ -1,3 +1,4 @@
+@include ('navbar')
 @extends(layout())
 @section('content')
 <!-- CSS only -->
@@ -8,14 +9,14 @@
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-@include ('navbar')
+
 <div class="container-fluid text-center m-2">
     <div class="container-fluid-col-md-6">
-        <h1>Area de Administração</h1>
+        <h1 style = "font-family:serif,Didot;"><b>Area de Administração</b></h1>
     </div>
 </div>
 <div class="container-fluid">
-    <table class="table table-bordered table-hover mr-2">
+    <table class="table table-bordered table-hover mr-2 text-center">
         <thead class="thead-dark">
             <tr>
             <th scope="col">ID</th>
@@ -44,7 +45,7 @@
                 <td>
                      <div class="col-md-12">
                         <form style="text-align: center; "  action="delete/{{$events->id}}" method="POST"> 
-                         <a class="btn btn-success " href="/{{$events->id}}"><ion-icon name="create-outline"></ion-icon></a> 
+                         <a class="btn btn-success " href="/administracao/atualizar/{{$events->id}}"><ion-icon name="create-outline"></ion-icon></a> 
                            @csrf
                             @method('DELETE')
                             <button  type="submit" class="btn btn-danger"><ion-icon name="trash-outline"></ion-icon></a>

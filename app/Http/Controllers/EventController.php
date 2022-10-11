@@ -47,4 +47,15 @@ class EventController extends Controller
         Event::findOrFail($id)->delete(); 
         return redirect('/administracao/edit/')->with('Delete','Evento excluido com sucesso !'); 
     }
+
+    public function atualizar($id){
+        /*--- Exibe a tela de atualizar evento ---*/
+        $event = Event::FindOrFail($id);
+        return view('Event.AtualizarEventos',['event'=>$event]);
+    }
+
+    public function update(Request $request){
+        Event::findOrFail($request->id)->update($request->all());
+        return redirect('home')->with('update','Evento Atualizado com sucesso!');
+    }    
 }
