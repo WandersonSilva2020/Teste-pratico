@@ -9,6 +9,7 @@ use App\Event;
 use App\Mail\envioDeEmail;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class EventController extends Controller
 {
@@ -27,16 +28,19 @@ class EventController extends Controller
         $events -> user_id  = auth()->user()->id;    
         $events -> autor = auth()->user()->name;
         $events->save();
+
+        $id = auth()->user()->id;
+        $userName = auth()->user()->email;
+        $user = User::where('id', $id)->first();
         
+        Mail::to($user->email)->send(new envioDeEmail($userName,$events));
         return redirect('/home')-> with('success',' O veículo foi registrado com sucesso!',);
 
     }
     public function meusVeiculos(){
-            $userId = auth()->user()->id;
-            
-            $eventUser = DB::select('select * from events where user_id = ?', [$userId]);
-
-            return view('event.MeusVeiculos',['eventUser'=> $eventUser]);
+        $userId = auth()->user()->id;
+        $eventUser = DB::select('select * from events where user_id = ?', [$userId]);
+        return view('event.MeusVeiculos',['eventUser'=> $eventUser]);
     }
 
     public function edit(){

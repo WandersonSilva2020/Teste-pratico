@@ -13,16 +13,19 @@ use phpDocumentor\Reflection\Types\This;
 class envioDeEmail extends Mailable
 {
     use Queueable, SerializesModels;
+    public $userName;
     public $user;
+    public $events;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($userName,$events)
     {
-    $this->user = $user;    
-    
+        $this->events = $events;
+        $userMail = auth()->user()->email;
+        $this-> userMail = $userMail;
     }
 
     /**
@@ -31,10 +34,9 @@ class envioDeEmail extends Mailable
      * @return $this
      */
     public function build()
-        
     {  
-        return $this->from($this->user->email)        
-                    ->view('mail.novoVeiculo')
-                    ->subject('email de teste');
+        return $this->from($this->userMail)        
+                    ->view('mail.novoVeiculo',['userMail'=>$this->userMail,'dadosDoEvento'=>$this->events])
+                    ->subject('Cadastro de Novo Veiculo - Concluido com Exito!');
     }
 }

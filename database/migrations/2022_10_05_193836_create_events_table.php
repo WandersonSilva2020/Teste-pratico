@@ -15,7 +15,7 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->string('placa');
-            $table->integer('renavam');
+            $table->bigInteger('renavam');
             $table->text('modelo');
             $table->text('marca');
             $table->year('ano');

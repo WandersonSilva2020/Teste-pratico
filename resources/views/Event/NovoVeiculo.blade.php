@@ -28,7 +28,7 @@
                             <label for="renavam"><h4>Renavam</h4></label>
                         </div>
                         <div class="col-sm ">
-                            <input type="text"  required class="form form-control" id="renavam" name="renavam" placeholder="Insira o Renavam do veiculo"> 
+                            <input type="text"  required class="form form-control" id="renavam" maxlength="11" minlength="11" name="renavam" pattern="[0-9]{11}$" placeholder="Insira o Renavam do veiculo (11 digitos)"> 
                         </div>
                     </div>
                 </div>
