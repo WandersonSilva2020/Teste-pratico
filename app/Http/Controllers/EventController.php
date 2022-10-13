@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Event;
+use App\Mail\envioDeEmail;
 use App\User;
 use Illuminate\Support\Facades\DB;
 
@@ -26,7 +27,8 @@ class EventController extends Controller
         $events -> user_id  = auth()->user()->id;    
         $events -> autor = auth()->user()->name;
         $events->save();
-        return redirect('/home')-> with('success',' O veículo foi registrado com sucesso!');
+        
+        return redirect('/home')-> with('success',' O veículo foi registrado com sucesso!',);
 
     }
     public function meusVeiculos(){

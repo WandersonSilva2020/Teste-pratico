@@ -18,7 +18,7 @@
                             <label for="placa"><h4>Placa do Veiculo</h4></label>
                         </div>
                         <div class="col-sm ">
-                            <input type="text" required class="form form-control" id="placa" name="placa" placeholder="Insira a placa do veiculo"> 
+                            <input type="text" required class="form form-control" id="placa" maxlength="7" minlength="7" name="placa" pattern="[a-z\s]{3}[0-9]{4}$" placeholder="Insira a placa do veiculo 'Sem o hifem'"> 
                         </div>
                     </div>
                 </div>
