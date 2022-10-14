@@ -10,7 +10,7 @@ use app\Event;
 use app\User;
 use phpDocumentor\Reflection\Types\This;
 
-class envioDeEmail extends Mailable
+class envioDeEmailNovoVeiculo extends Mailable
 {
     use Queueable, SerializesModels;
     public $userName;
@@ -21,10 +21,9 @@ class envioDeEmail extends Mailable
      *
      * @return void
      */
-    public function __construct($userName,$events)
+    public function __construct($userMail,$events)
     {
         $this->events = $events;
-        $userMail = auth()->user()->email;
         $this-> userMail = $userMail;
     }
 

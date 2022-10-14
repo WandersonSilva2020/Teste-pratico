@@ -6,7 +6,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Event;
-use App\Mail\envioDeEmail;
+use App\Mail\envioDeEmailNovoVeiculo;
+use App\Mail\envioDeEmailEditarVeiculo;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -30,10 +31,10 @@ class EventController extends Controller
         $events->save();
 
         $id = auth()->user()->id;
-        $userName = auth()->user()->email;
+        $userMail = auth()->user()->email;
         $user = User::where('id', $id)->first();
         
-        Mail::to($user->email)->send(new envioDeEmail($userName,$events));
+        Mail::to($user->email)->send(new envioDeEmailNovoVeiculo($userMail,$events));
         return redirect('/home')-> with('success',' O veículo foi registrado com sucesso!',);
 
     }
@@ -46,6 +47,7 @@ class EventController extends Controller
     public function edit(){
         $event = Event::all();
         $userName = auth()->user()->name;
+
         return view('Event.edit',['event'=> $event,'userName'=>$userName]);
     }
 
@@ -62,6 +64,16 @@ class EventController extends Controller
 
     public function update(Request $request){
         Event::findOrFail($request->id)->update($request->all());
+        $dados = new Event;
+        $dados = Event::findOrFail($request->id);
+    
+        $id = auth()->user()->id;
+        $userMail = auth()->user()->email;
+        $userName = auth()->user()->name;
+        
+        $user = User::where('id', $id)->first();
+        Mail::to($user->email)->send(new envioDeEmailEditarVeiculo($userMail,$user,$dados,$userName));
+        
         return redirect('home')->with('update','Veículo Atualizado com sucesso!');
     }    
 }
